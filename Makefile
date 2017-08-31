@@ -4,7 +4,7 @@
 # See COPYING file for license information.
 #
 
-CXXFLAGS ?= -Wall -pedantic -Wno-long-long -O2
+CXXFLAGS ?= -Wall -pedantic -Wno-long-long -O2  -I/usr/local/opt/openssl/include 
 PREFIX ?= /usr/local
 BINDIR ?= $(PREFIX)/bin
 MANDIR ?= $(PREFIX)/share/man
@@ -24,7 +24,7 @@ OBJFILES = \
     fhstream.o
 
 OBJFILES += crypto-openssl.o
-LDFLAGS += -lcrypto
+LDFLAGS += -lcrypto  -L/usr/local/opt/openssl/lib
 
 XSLTPROC ?= xsltproc
 DOCBOOK_FLAGS += --param man.output.in.separate.dir 1 \
